@@ -14,32 +14,41 @@ function randomVal2(){
     return val
 }
 
+
 function calcWage(n = randomVal2()){
 
-    switch(n){
-        case 0:
-        totalWage += partHour*perHourWage
-        totalHour+=partHour
-        break
-    
-        case 1:
-        totalWage += fullHour*perHourWage
-        totalHour+=fullHour
-        break
+switch(n){
+    case 0:
+    totalWage += partHour*perHourWage
+    totalHour+=partHour
+    break
 
-        case 2:
-        return
-        }
+    case 1:
+    totalWage += fullHour*perHourWage
+    totalHour+=fullHour
+    break
+
+    case 2:
+    return
     }
+}
+
+function monthlyWages(){
+    for(let i = 0;i < 20;i++){
+        calcWage()    
+    }
+}
 
 let val = randomVal()
 
-    if(val === 0){
-        console.log("Absent")
-    }
-    else if(val === 1){
-        console.log("Present")
-        calcWage()
-         console.log(`Wages per day -> ${totalWage}`)
-         console.log(`Work Hours per day -> ${totalHour}`)            
-    }
+if(val === 0){
+    console.log("Absent")
+}
+else if(val === 1){
+    console.log("Present")
+
+    monthlyWages()
+    console.log(`Total Wages for 20 days -> ${totalWage}`)
+    console.log(`Total Hours for 20 days -> ${totalHour}`)
+
+}
