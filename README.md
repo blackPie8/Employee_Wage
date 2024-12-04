@@ -13,3 +13,7 @@ UC_3 -> Refactored the code (fn to get hours)
 -----------
 
 UC_4 -> function for Monthly Wage
+
+-----------
+
+UC_5 -> Wage till conditions mentioned

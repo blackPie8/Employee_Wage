@@ -3,6 +3,7 @@ const fullHour = 8
 const perHourWage = 20
 let totalWage = 0
 let totalHour = 0
+let totDays = 0
 
 function randomVal(){
     const val = Math.floor(Math.random()*2)
@@ -14,18 +15,19 @@ function randomVal2(){
     return val
 }
 
-
 function calcWage(n = randomVal2()){
 
 switch(n){
     case 0:
     totalWage += partHour*perHourWage
     totalHour+=partHour
+    totDays++
     break
 
     case 1:
     totalWage += fullHour*perHourWage
     totalHour+=fullHour
+    totDays++
     break
 
     case 2:
@@ -39,6 +41,12 @@ function monthlyWages(){
     }
 }
 
+function condMonthlyWages(){
+    while(totalHour <= 160 && totDays < 20){
+        calcWage()
+        }
+    }
+
 let val = randomVal()
 
 if(val === 0){
@@ -47,8 +55,9 @@ if(val === 0){
 else if(val === 1){
     console.log("Present")
 
-    monthlyWages()
-    console.log(`Total Wages for 20 days -> ${totalWage}`)
-    console.log(`Total Hours for 20 days -> ${totalHour}`)
-
+    condMonthlyWages()
+    console.log(`Wages for maximum of 20 days Or total working Hours of 160 -> ${totalWage}`);
+    // console.log(totalHour);
+    // console.log(totDays);
+    
 }
