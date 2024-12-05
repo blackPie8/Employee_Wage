@@ -17,3 +17,7 @@ UC_4 -> function for Monthly Wage
 -----------
 
 UC_5 -> Wage till conditions mentioned
+
+-----------
+
+UC_6 -> New Function for calculating yearly wages for single employee

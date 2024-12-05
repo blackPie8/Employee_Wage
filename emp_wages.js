@@ -4,6 +4,11 @@ const perHourWage = 20
 let totalWage = 0
 let totalHour = 0
 let totDays = 0
+let yearlyWage = 0
+let yearlyHours = 0
+
+let data = []
+let months = ["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
 function randomVal(){
     const val = Math.floor(Math.random()*2)
@@ -47,6 +52,24 @@ function condMonthlyWages(){
         }
     }
 
+    function twelveMonths(){
+        for(let i = 1; i <= 12;i++){
+            monthlyWages()
+            yearlyWage += totalWage
+            yearlyHours+= totalHour
+
+            let obj = {
+                month : months[i],
+                wage : totalWage,
+                hour : totalHour
+            }
+
+            data.push(obj)
+            totalWage = 0
+            totalHour = 0    
+        }
+    }
+
 let val = randomVal()
 
 if(val === 0){
@@ -55,9 +78,13 @@ if(val === 0){
 else if(val === 1){
     console.log("Present")
 
-    condMonthlyWages()
-    console.log(`Wages for maximum of 20 days Or total working Hours of 160 -> ${totalWage}`);
-    // console.log(totalHour);
-    // console.log(totDays);
+    twelveMonths()
+    for(let i = 0;i<data.length;i++){
+        console.log(`Month -> ${data[i].month} || Wage -> Re${data[i].wage} || Hours -> ${data[i].hour}`);
+    }
+
+    console.log(`Yearly wage -> ${yearlyWage}`);
+    console.log(`Yearly Working hours -> ${yearlyHours}`);
+    
     
 }
